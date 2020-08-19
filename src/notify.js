@@ -24,3 +24,5 @@ class Verify {
 var user = new Verify('0815523468', "registerd");
 
 user.notification();
+
+module.exports = {Verify}

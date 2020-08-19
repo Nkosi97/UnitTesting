@@ -1,23 +1,20 @@
-describe('Should notification() test', function() {
+let myTest = require("../src/notify");
 
-    it('call the function getNumber()', function() {
-        var user = new Verify('0815523468', "registed");
+describe("notification function", function () {
+  var user = new myTest.Verify("0815523468", "registerd");
+  it("Should call the function getNumber()", function () {
+    spyOn(user, "getNumber");
 
-        spyOn(user, "getNumber");
+    user.notification();
 
-        user.notification();
+    expect(user.getNumber).toHaveBeenCalled();
+  });
 
-        expect(user.getNumber).toHaveBeenCalled();
-    })
+  it("Should call the function getText()", function () {
+    spyOn(user, "getText");
 
-    it('call the function getText()', function() {
-        var user = new Verify('0815523468', "registed");
+    user.notification();
 
-        spyOn(user, "getText");
-
-        user.notification();
-
-        expect(user.getText).toHaveBeenCalled();
-        
-    })
-})
+    expect(user.getText).toHaveBeenCalled();
+  });
+});
